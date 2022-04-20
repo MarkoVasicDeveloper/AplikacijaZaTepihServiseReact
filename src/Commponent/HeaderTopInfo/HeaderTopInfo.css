@@ -1,0 +1,58 @@
+.header-reception {
+  width: 100%;
+  height: 3rem;
+  border-bottom: 1px solid #ffffff55;
+  font-family: "Montserrat";
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-reception > div {
+  flex-grow: 1;
+}
+.washer-logo {
+  margin-left: 2rem;
+  font-size: 1.5rem;
+}
+
+.user > p > span {
+  color: #fec400;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 1px #222;
+}
+
+.worker > p > span {
+  color: #fec400;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 1px #222;
+}
+
+.logOutButton {
+  padding-right: 2rem;
+}
+
+.logOutButton > button {
+  background-color: transparent;
+  border: 1px solid #fec400;
+  border-radius: 20px;
+  color: #ffffff;
+  padding: 0.3rem;
+}
+
+.logOutButton > button:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 650px) {
+  .user {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .worker {
+    display: none;
+  }
+}

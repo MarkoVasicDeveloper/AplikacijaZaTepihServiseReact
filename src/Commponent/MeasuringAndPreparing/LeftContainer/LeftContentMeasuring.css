@@ -1,0 +1,81 @@
+#leftContentMeasuring {
+  max-height: 120vh;
+  flex-grow: 3;
+  flex-basis: 0;
+  border: 1px solid #793ea5;
+  border-radius: 20px;
+  background-color: #000000cc;
+}
+
+.carpetId {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid #ffffff66;
+}
+
+.carpetId > label > span {
+  color: #fec400;
+}
+
+.carpetId > input {
+  background-color: transparent;
+  border: 1px solid #793ea5;
+  border-radius: 20px;
+  height: 1.7rem;
+  width: 80px;
+  color: #fff;
+  padding: 0.3rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.carpetId > button {
+  background-color: #793ea5;
+  border-radius: 20px;
+  padding: 0.5rem;
+  color: #fff;
+  border: none;
+  width: 100px;
+}
+.userInfo {
+  width: 100%;
+  padding: 1rem 1rem;
+  border-bottom: 1px solid #fec400;
+  margin-bottom: 1rem;
+}
+
+.userInfo > .info {
+  width: 100%;
+  margin: 1rem 0rem;
+  display: flex;
+}
+
+.userInfo > .info > label {
+  flex-grow: 3;
+  flex-basis: 0;
+}
+
+.userInfo > .info > p {
+  flex-grow: 5;
+  flex-basis: 0;
+  color: #fec400;
+}
+.date > label {
+  margin-right: 2rem;
+}
+
+.forPay {
+  width: 100%;
+  height: 5rem;
+  padding: 1rem;
+}
+.forPay > p {
+  float: right;
+}
+
+.forPay > p > span {
+  color: #fec400;
+  font-size: 1.5rem;
+}

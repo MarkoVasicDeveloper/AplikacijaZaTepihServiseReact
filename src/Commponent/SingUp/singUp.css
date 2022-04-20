@@ -1,0 +1,201 @@
+#singUp {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../Img/background-log-in.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: #00000099;
+  background-blend-mode: darken;
+  font-family: "Montserrat";
+  padding-top: 5rem;
+  box-sizing: border-box;
+}
+
+.loginworker {
+  color: #fec400;
+}
+
+.form-holder-singUp {
+  max-width: 60%;
+  height: 80vh;
+  margin: 0 auto;
+  border-radius: 20px;
+  background-color: #000000aa;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-header-singUp {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.input-holder {
+  flex-grow: 4;
+  flex-basis: 0;
+  display: flex;
+  gap: 1rem;
+}
+.input-holder > div {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.btn-textMesage-holder {
+  flex-grow: 2;
+  flex-basis: 0;
+}
+.form-header-singUp {
+  width: 100%;
+  color: #ffffdd;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.form-header-singUp > svg:hover {
+  cursor: pointer;
+}
+
+.form-header-singUp > h2 {
+  margin-left: 5rem;
+}
+
+.social-singUp {
+  width: 20%;
+  height: auto;
+  position: absolute;
+  top: -80%;
+  right: 5%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.social-singUp > a {
+  font-size: 4rem;
+  color: #ffffdd;
+}
+.input-one-singUp {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.input-one-singUp > div {
+  width: 10%;
+  height: 100%;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  box-sizing: border-box;
+  background-color: #793ea5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: #ffffdd;
+}
+
+.input-one-singUp > input {
+  width: 100%;
+  height: 100%;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-left: 1rem;
+  box-sizing: border-box;
+  border: none;
+}
+
+.btn-textMesage-holder {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.btn-div {
+  flex-grow: 2;
+  flex-basis: 0;
+}
+
+.form-footer-singUp {
+  margin-top: 2rem;
+  flex-grow: 3;
+  flex-basis: 0;
+}
+.btn-textMesage-holder > .btn-div > button {
+  width: 30%;
+  height: 100%;
+  background-color: #793ea5;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffdd;
+  float: right;
+}
+
+.form-footer-singUp {
+  width: 100%;
+  height: 20%;
+  padding: 0.5rem;
+  border-top: 1px solid #9c9c9c;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  color: #ffffdd;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.2rem;
+}
+
+.form-footer-singUp > p > span > a {
+  font-family: "Montserrat";
+  color: #fec400;
+}
+
+.showMessageLogin {
+  width: 50%;
+  height: 40%;
+  border: 1px solid #fec400;
+  border-radius: 20px;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffdd;
+  position: absolute;
+  text-align: center;
+  padding: 0.2rem;
+}
+
+.singUp-worker {
+  width: 30%;
+}
+
+@media (max-width: 868px) {
+  .form-holder-singUp {
+    width: 90vw;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: #000000aa;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-holder {
+    flex-direction: column;
+  }
+
+  .social-singUp {
+    top: -220%;
+  }
+
+  #singUp {
+    height: auto;
+  }
+}

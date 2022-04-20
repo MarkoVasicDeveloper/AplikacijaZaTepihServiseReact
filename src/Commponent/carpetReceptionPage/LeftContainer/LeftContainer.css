@@ -1,0 +1,92 @@
+#leftContainer {
+  flex-grow: 1;
+  flex-basis: 0;
+  border: 1px solid #793ea5;
+  border-radius: 20px;
+  padding: 1rem;
+  background-color: #000000cc;
+}
+
+.headline {
+  margin-bottom: 2rem;
+}
+
+.clientInformation {
+  width: 60%;
+}
+
+.clientInformation > h3 {
+  margin: 1rem 1rem;
+  text-align: center;
+}
+
+.clientInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clientInput > input {
+  width: 70%;
+  background-color: transparent;
+  border: 1px solid #793ea5;
+  border-radius: 20px;
+  padding: 0.3rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.clientInput > textarea {
+  width: 70%;
+  background-color: transparent;
+  border: 1px solid #793ea5;
+  border-radius: 20px;
+  padding: 0.3rem;
+  color: #fff;
+}
+
+.sendButton > button {
+  float: right;
+  margin: 1rem 3rem;
+  background-color: #793ea5;
+  border: 1px none;
+  border-radius: 20px;
+  color: #fff;
+  padding: 0.3rem;
+  width: 30%;
+  height: 2rem;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 650px) {
+  .clientInformation {
+    width: 80%;
+  }
+}
+
+@media (max-width: 500px) {
+  .clientInformation {
+    width: 90%;
+  }
+
+  .clientInput > input {
+    width: 60%;
+  }
+
+  .clientInput > textarea {
+    width: 60%;
+  }
+}
+@media (max-width: 400px) {
+  .clientInformation {
+    width: 100%;
+  }
+
+  .clientInput > input {
+    width: 50%;
+  }
+
+  .clientInput > textarea {
+    width: 50%;
+  }
+}

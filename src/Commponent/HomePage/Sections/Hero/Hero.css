@@ -1,0 +1,109 @@
+.imageContainer {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 3rem;
+  background-color: #00000055;
+  background-image: url("../../../../Img/hero-bg.jpg");
+  background-blend-mode: color-burn;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: -10;
+  text-align: center;
+}
+
+.shadow {
+  width: 25%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #00000033;
+  z-index: -9;
+}
+
+.shadow1 {
+  width: 25%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 25%;
+  background-color: #00000055;
+  border-left: 1px solid #80808033;
+  z-index: -9;
+}
+
+.shadow2 {
+  width: 25%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background-color: #00000088;
+  z-index: -9;
+}
+
+.shadow3 {
+  width: 24%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 75%;
+  background-color: #00000099;
+  z-index: -9;
+}
+
+.imageContainer > div > h1 {
+  font-size: 6rem;
+  font-family: "Montserrat";
+  color: #ffffff;
+  margin-top: 15%;
+}
+
+.imageContainer > div > h3 {
+  color: #9c9c9c;
+  font-size: 1.5rem;
+  font-family: "Nunito Sans", sans-serif;
+  line-height: 1.342;
+}
+
+.imageContainer > div > .description {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.5rem;
+  margin-top: 10%;
+  color: #793ea5;
+}
+
+.hero-info {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  right: 5%;
+  height: 3rem;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: #793ea5;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+  letter-spacing: 0.2rem;
+}
+
+.animation {
+  animation: start 2000ms ease;
+}
+
+@keyframes start {
+  0% {
+    margin-top: 50%;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0%;
+    opacity: 1;
+  }
+}

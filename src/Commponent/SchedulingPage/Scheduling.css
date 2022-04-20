@@ -1,0 +1,111 @@
+#scheduling {
+  width: 100%;
+  min-height: 100vh;
+  background: url("../../Img/hero-bg.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-color: #00000099;
+  background-blend-mode: darken;
+  padding-top: 3rem;
+  counter-reset: section;
+  color: #fff;
+  font-family: "Montserrat";
+}
+
+.schedulingContent {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+h1 {
+  text-align: center;
+  color: #fec400;
+  margin: 1rem;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px #000;
+}
+.schedulingContent > .leftContent,
+.schedulingContent > .rightContent {
+  flex-grow: 1;
+  flex-basis: 0;
+  border: 1px solid #fec400;
+  border-radius: 20px;
+  background-color: #000000cc;
+  padding: 1rem;
+}
+.schedulingContent > .leftContent > h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.schedulingContent > .leftContent > .informationSheduling {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.schedulingContent > .leftContent > .informationSheduling > .infoInput {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.schedulingContent > .leftContent > .informationSheduling > .infoInput > input {
+  width: 70%;
+  background-color: transparent;
+  border: 1px solid #793ea5;
+  border-radius: 20px;
+  padding: 0.2rem 0.5rem;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.schedulingContent > .leftContent > .informationSheduling > h3 {
+  text-align: center;
+  margin: 2rem;
+  text-transform: uppercase;
+}
+.schedulingContent
+  > .leftContent
+  > .informationSheduling
+  > .infoInput
+  > textarea {
+  width: 70%;
+  height: 7rem;
+  border: 1px solid #793ea5;
+  border-radius: 20px;
+  background-color: transparent;
+  padding: 0.5rem;
+  color: #fff;
+  font-size: 1.2rem;
+}
+.schedulingContent > .leftContent > button {
+  float: right;
+  width: 20%;
+  height: 2rem;
+  background-color: #793ea5;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+.rightContent > .savedInfo {
+  width: 100%;
+  margin-top: 2rem;
+}
+.rightContent > .savedInfo > .rightInfo {
+  display: flex;
+}
+.rightContent > .savedInfo > .rightInfo > p {
+  width: 25%;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.rightContent > .savedInfo > .rightInfo > span {
+  color: #fec400;
+  width: 75%;
+}

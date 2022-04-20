@@ -1,0 +1,108 @@
+#rightContainer {
+  flex-grow: 1;
+  flex-basis: 0;
+  border: 1px solid #fec400;
+  border-radius: 20px;
+  padding: 1rem;
+  background-color: #000000cc;
+}
+
+.savedInformation {
+  width: 100%;
+}
+
+.savedInformation > .headlineInformation > h2 {
+  text-align: center;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ffffff77;
+}
+
+.savedInformation > .information {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.3rem;
+}
+
+.savedInformation > .information > span {
+  color: #fec400;
+  font-size: 1.2rem;
+}
+
+.editButton {
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editButton > button {
+  width: 50%;
+  background-color: transparent;
+  border: 2px solid #fec400;
+  border-radius: 20px;
+  padding: 0.3rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.lastVisit {
+  border: 1px solid pink;
+  padding: 1rem;
+}
+
+.visitHedline {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.visitHedline > h3 > span {
+  color: #fec400;
+}
+
+.table {
+  width: 100%;
+  display: flex;
+}
+
+.table > .visit {
+  flex-grow: 1;
+  flex-basis: 0;
+  border-right: 1px solid #fec400;
+  padding: 0.5rem;
+}
+
+.table > .visit > div {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #fec400;
+  padding: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .table {
+    margin: 0 auto;
+    width: 50%;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .table > .visit {
+    border-bottom: 1px solid #fec400;
+  }
+}
+
+@media (max-width: 500px) {
+  .table {
+    width: 70%;
+  }
+}
+
+@media (max-width: 400px) {
+  .table {
+    width: 90%;
+  }
+}

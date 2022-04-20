@@ -1,0 +1,240 @@
+#footer {
+  width: 100%;
+  height: auto;
+  background-color: #793ea5;
+  position: relative;
+  padding-top: 7rem;
+  padding-bottom: 2rem;
+}
+
+.transparent-one {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  bottom: 0;
+  border-left: 1px solid #ffffff1f;
+  border-right: 1px solid #ffffff1f;
+  z-index: 0;
+}
+
+.transparent-two {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  bottom: 0;
+  border-left: 1px solid #ffffff1f;
+  border-right: 1px solid #ffffff1f;
+  z-index: 0;
+}
+
+.transparent-three {
+  position: absolute;
+  top: 0;
+  left: 75%;
+  bottom: 0;
+  border-left: 1px solid #ffffff1f;
+  border-right: 1px solid #ffffff1f;
+  z-index: 0;
+}
+
+.footer-info {
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  font-family: "Montserrat";
+  text-align: center;
+  z-index: 10;
+}
+
+.footer-info > h3 {
+  color: #2a1538;
+  text-transform: uppercase;
+}
+
+.call_to_action {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 8rem;
+  font-size: 2.2rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.footer-info > a {
+  color: #ffffff;
+  font-size: 4rem;
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.footer-info > a:hover {
+  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.contract-number {
+  color: #ffffff99;
+  font-size: 1.5rem;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+}
+
+.social {
+  width: 12%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.social > a {
+  color: #fff;
+  font-size: 3rem;
+}
+
+.social > a:hover {
+  transform: scale(1.4);
+  transition: 500ms ease;
+}
+
+.footer-info > button {
+  width: 30%;
+  height: 60px;
+  background-color: #2a1538;
+  border-radius: 20px;
+  border: transparent;
+  color: #fff;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-top: 5rem;
+}
+
+.copy {
+  height: 3rem;
+  color: #ffffff99;
+  font-family: "Nunito Sans", sans-serif;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+@media (max-width: 876px) {
+  .hero-info {
+    height: 4rem;
+  }
+
+  .imageContainer > div > h1 {
+    margin-top: 10%;
+  }
+
+  #info {
+    box-sizing: border-box;
+    height: auto;
+    padding: 1rem 0.2rem;
+  }
+
+  .info-container {
+    width: 90%;
+    height: auto;
+    flex-wrap: wrap;
+  }
+
+  .info-container > div {
+    width: 40%;
+    height: 420px;
+    margin-bottom: 2rem;
+  }
+
+  .text-description > .button > button {
+    height: 2rem;
+  }
+
+  .taxative-information > .one-information {
+    width: 49%;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+
+  .taxative-information {
+    width: 90vw;
+    height: auto;
+  }
+
+  #support {
+    width: 100%;
+    height: auto;
+    padding: 5rem 1rem 2rem 0rem;
+  }
+
+  .footer-info > a {
+    font-size: 2.54rem;
+    margin: 0;
+  }
+
+  .footer-info {
+    width: 90%;
+    height: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-info {
+    height: 5rem;
+  }
+
+  .imageContainer > div > h1 {
+    margin-top: 8%;
+  }
+  .footer-info > a {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-info > a {
+    font-size: 1.5rem;
+  }
+
+  .footer-info {
+    width: 100%;
+    height: auto;
+  }
+
+  .taxative-information > .one-information {
+    width: 100%;
+  }
+
+  .info-container > div {
+    width: 100%;
+    height: 420px;
+    margin-bottom: 2rem;
+  }
+  .imageContainer > div > h1 {
+    font-size: 4rem;
+  }
+
+  .navBar > nav > ul {
+    width: 60%;
+    padding-right: 0rem;
+  }
+  .navBar > nav > ul > li {
+    width: 100%;
+    padding: 0.2rem;
+    border: 1px solid transparent;
+    font-size: 0.8rem;
+  }
+  .support-info {
+    width: 90%;
+  }
+  .support-info > div > p {
+    font-size: 1.5rem;
+    line-height: 1.745;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-info > a {
+    font-size: 1rem;
+  }
+}

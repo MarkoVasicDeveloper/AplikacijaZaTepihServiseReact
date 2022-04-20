@@ -1,0 +1,223 @@
+#logIn {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../Img/background-log-in.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: #00000066;
+  background-blend-mode: darken;
+  padding-top: 5rem;
+  font-family: "Montserrat";
+  box-sizing: border-box;
+}
+
+.form-holder {
+  max-width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background-color: #000000aa;
+  padding: 1rem;
+}
+
+.form-header {
+  width: 100%;
+  height: 20%;
+  color: #ffffdd;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.form-header > h2 {
+  margin-left: 1rem;
+}
+
+.form-header > svg:hover {
+  cursor: pointer;
+}
+
+.social {
+  width: 40%;
+  height: auto;
+  position: absolute;
+  top: -55%;
+  right: 5%;
+}
+
+.social > a {
+  font-size: 4rem;
+}
+
+.input-one {
+  width: 100%;
+  height: 10%;
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.input-one > div {
+  width: 10%;
+  height: 100%;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  box-sizing: border-box;
+  background-color: #793ea5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: #ffffdd;
+}
+
+.input-one > input {
+  width: 100%;
+  height: 100%;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-left: 1rem;
+  box-sizing: border-box;
+  border: none;
+}
+
+.input-two {
+  width: 100%;
+  height: 10%;
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.input-two > div {
+  width: 10%;
+  height: 100%;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  box-sizing: border-box;
+  background-color: #793ea5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: #ffffdd;
+}
+
+.input-two > input {
+  width: 100%;
+  height: 100%;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-left: 1rem;
+  box-sizing: border-box;
+  border: none;
+}
+
+.submit-btn {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: right;
+  margin-bottom: 2rem;
+}
+
+.submit-btn > button {
+  width: 30%;
+  height: 50%;
+  margin-top: 2rem;
+  background-color: #793ea5;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffdd;
+}
+
+.form-footer {
+  width: 100%;
+  height: 20%;
+  border-top: 1px solid #9c9c9c;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  color: #ffffdd;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.2rem;
+}
+
+.form-footer > p > span > a {
+  font-family: "Montserrat";
+  color: #fec400;
+}
+
+.hiddenMessage {
+  display: none;
+}
+
+.showMessage {
+  display: block;
+  width: 50%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: #000000aa;
+  margin-right: 5rem;
+  color: #ffffdd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  border: 1px solid #fec400;
+  padding: 0.2rem;
+  text-align: center;
+}
+
+@media (max-width: 1000px) {
+  .social {
+    top: -82%;
+  }
+}
+
+@media (max-width: 868px) {
+  .social {
+    top: -90%;
+  }
+
+  .form-holder {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 780px) {
+  .social {
+    top: -100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .social {
+    top: -115%;
+  }
+}
+
+@media (max-width: 600px) {
+  .social {
+    top: -58%;
+  }
+}
+
+@media (max-width: 360px) {
+  .social {
+    top: -72%;
+  }
+}
+
+@media (max-width: 410px) {
+  .social {
+    top: -67%;
+  }
+}
+
+@media (max-width: 510px) {
+  .social {
+    top: -60%;
+  }
+}

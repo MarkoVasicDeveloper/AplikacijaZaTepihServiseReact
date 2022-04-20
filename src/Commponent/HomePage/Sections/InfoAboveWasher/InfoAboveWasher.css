@@ -1,0 +1,115 @@
+#infoAboveWasher {
+  width: 100%;
+  height: auto;
+  background-color: #111;
+  padding-top: 10rem;
+  font-family: "Montserrat";
+  color: #fff;
+}
+
+.what_is_washer {
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  font-size: 2rem;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.what_is_washer > h3 {
+  color: #793ea5;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+.taxative-information {
+  width: 80vw;
+  height: 85vh;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+}
+
+.taxative-information > .one-information {
+  width: 49%;
+  height: 50%;
+  position: relative;
+}
+
+.taxative-information > .one-information > h4 {
+  font-family: "Montserrat";
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+  margin-left: 4rem;
+}
+
+.taxative-information > .one-information > .one::before {
+  content: "1";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  background-color: #793ea5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.taxative-information > .one-information > .two::before {
+  content: "2";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  background-color: #793ea5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.taxative-information > .one-information > .three::before {
+  content: "3";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  background-color: #793ea5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.taxative-information > .one-information > .four::before {
+  content: "4";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  background-color: #793ea5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.taxative-information > .one-information > div {
+  width: 80%;
+}
+
+.taxative-information > .one-information > div > p {
+  font-family: "Nunito Sans", sans-serif;
+  color: #ffffff4d;
+  font-size: 17px;
+  line-height: 1.945;
+}

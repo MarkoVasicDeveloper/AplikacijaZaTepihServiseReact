@@ -1,0 +1,44 @@
+#support {
+  width: 100%;
+  height: 60vh;
+  background-image: url("../../../../Img/pattern.jpg");
+  background-color: #00000055;
+  background-blend-mode: darken;
+  padding: 5rem 0rem 2rem 0rem;
+  position: relative;
+  z-index: -1;
+  box-sizing: border-box;
+}
+
+.support-info {
+  width: 60%;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 10;
+}
+
+.support-info > h3 {
+  font-family: "Montserrat";
+  font-size: 1.7rem;
+  color: #793ea5;
+  margin-bottom: 2rem;
+}
+
+.support-info > div > p {
+  font-family: "Nunito Sans", sans-serif;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.945;
+}
+
+.dark-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 50%;
+  background-color: #000;
+  z-index: -1;
+}
