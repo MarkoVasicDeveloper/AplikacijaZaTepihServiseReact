@@ -16,3 +16,9 @@ export function errorHandler(error: any) {
       alert("An unknown error occurred.");
   }
 }
+
+export const positionOptions = {
+  enableHighAccuracy: true,
+  timeout: 90000,
+  maximumAge: 20000,
+};

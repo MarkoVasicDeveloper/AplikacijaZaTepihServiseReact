@@ -109,3 +109,36 @@ h1 {
   color: #fec400;
   width: 75%;
 }
+
+@media (max-width: 768px) {
+  .schedulingContent {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 500px) {
+  .schedulingContent > .leftContent > .informationSheduling {
+    width: 100%;
+  }
+
+  .schedulingContent > .leftContent > button {
+    width: 40%;
+  }
+}
+
+@media (max-width: 400px) {
+  .schedulingContent
+    > .leftContent
+    > .informationSheduling
+    > .infoInput
+    > input {
+    width: 60%;
+  }
+  .schedulingContent
+    > .leftContent
+    > .informationSheduling
+    > .infoInput
+    > textarea {
+    width: 60%;
+  }
+}

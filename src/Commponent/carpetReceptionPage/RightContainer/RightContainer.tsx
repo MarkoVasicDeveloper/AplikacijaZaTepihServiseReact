@@ -18,8 +18,7 @@ export default function RightContainer() {
         numberOfTracks: reception.numberOfTracks,
       }));
     }
-    setVisits(lastVisits());
-    return () => {};
+    setVisits(lastVisits().slice(-4).reverse());
   }, [client, visits]);
 
   return (
@@ -54,11 +53,6 @@ export default function RightContainer() {
           <p>Broj staza:</p>
           <span>{client.numberOfTracks}</span>
         </div>
-        <div className="editButton">
-          <button onClick={() => console.log(visits.slice(-4)[0].date)}>
-            Izmeni podatke?
-          </button>
-        </div>
       </div>
       <div className="lastVisit">
         <div className="visitHedline">
@@ -70,61 +64,43 @@ export default function RightContainer() {
           <div className="visit">
             <div>
               <p>Datum:</p>
-              <span>
-                {!visits.slice(-4)[0] ? "" : visits.slice(-4)[0].date}
-              </span>
+              <span>{!visits[0] ? "" : visits[0].date}</span>
             </div>
             <div>
               <p>Broj tepiha:</p>
-              <span>
-                {!visits.slice(-4)[0] ? "" : visits.slice(-4)[0].numberOfCarpet}
-              </span>
+              <span>{!visits[0] ? "" : visits[0].numberOfCarpet}</span>
             </div>
             <div>
               <p>Broj staza:</p>
-              <span>
-                {!visits.slice(-4)[0] ? "" : visits.slice(-4)[0].numberOfTracks}
-              </span>
+              <span>{!visits[0] ? "" : visits[0].numberOfTracks}</span>
             </div>
           </div>
           <div className="visit">
             <div>
               <p>Datum:</p>
-              <span>
-                {!visits.slice(-4)[1] ? "" : visits.slice(-4)[1].date}
-              </span>
+              <span>{!visits[1] ? "" : visits[1].date}</span>
             </div>
             <div>
               <p>Broj tepiha:</p>
-              <span>
-                {!visits.slice(-4)[1] ? "" : visits.slice(-4)[1].numberOfCarpet}
-              </span>
+              <span>{!visits[1] ? "" : visits[1].numberOfCarpet}</span>
             </div>
             <div>
               <p>Broj staza:</p>
-              <span>
-                {!visits.slice(-4)[1] ? "" : visits.slice(-4)[1].numberOfTracks}
-              </span>
+              <span>{!visits[1] ? "" : visits[1].numberOfTracks}</span>
             </div>
           </div>
           <div className="visit">
             <div>
               <p>Datum:</p>
-              <span>
-                {!visits.slice(-4)[2] ? "" : visits.slice(-4)[2].date}
-              </span>
+              <span>{!visits[2] ? "" : visits[2].date}</span>
             </div>
             <div>
               <p>Broj tepiha:</p>
-              <span>
-                {!visits.slice(-4)[2] ? "" : visits.slice(-4)[2].numberOfCarpet}
-              </span>
+              <span>{!visits[2] ? "" : visits[2].numberOfCarpet}</span>
             </div>
             <div>
               <p>Broj staza:</p>
-              <span>
-                {!visits.slice(-4)[2] ? "" : visits.slice(-4)[2].numberOfTracks}
-              </span>
+              <span>{!visits[2] ? "" : visits[2].numberOfTracks}</span>
             </div>
           </div>
         </div>

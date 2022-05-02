@@ -5,11 +5,13 @@ import {
   faTruck,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Info.css";
 
 export default function InfoSection() {
   const [position, setPosition] = useState(false);
+
+  const infoSection = useRef() as any;
 
   useEffect(() => {
     window.addEventListener("scroll", loockPosition);
@@ -19,16 +21,13 @@ export default function InfoSection() {
   }, []);
 
   function loockPosition() {
-    if (window.scrollY <= 250) {
-      setPosition(false);
-    } else {
+    if (infoSection.current.getBoundingClientRect().top <= 400)
       setPosition(true);
-    }
   }
   return (
-    <section id="info">
+    <section id="info" ref={infoSection}>
       <div className="info-container">
-        <div className={position === true ? "show-info" : "not-show"}>
+        <div className={position ? "show-info" : "not-show"}>
           <div className="svg-icon">
             <FontAwesomeIcon icon={faCog} />
           </div>
@@ -49,7 +48,7 @@ export default function InfoSection() {
             </div>
           </div>
         </div>
-        <div className={position === true ? "show-info2" : "not-show"}>
+        <div className={position ? "show-info2" : "not-show"}>
           <div className="svg-icon">
             <FontAwesomeIcon icon={faExclamationTriangle} />
           </div>
@@ -68,7 +67,7 @@ export default function InfoSection() {
             </div>
           </div>
         </div>
-        <div className={position === true ? "show-info2" : "not-show"}>
+        <div className={position ? "show-info2" : "not-show"}>
           <div className="svg-icon">
             <FontAwesomeIcon icon={faPaste} />
           </div>
@@ -87,7 +86,7 @@ export default function InfoSection() {
             </div>
           </div>
         </div>
-        <div className={position === true ? "show-info3" : "not-show"}>
+        <div className={position ? "show-info3" : "not-show"}>
           <div className="svg-icon">
             <FontAwesomeIcon icon={faTruck} />
           </div>

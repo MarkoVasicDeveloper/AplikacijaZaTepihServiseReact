@@ -13,8 +13,10 @@ export default function Footer() {
         <p className="call_to_action">
           Budite slobodni da nas kontaktirate po bilo kom pitanju
         </p>
-        <a href="mailto:washersoftware@gmail.com">washersoftware@gmail.com</a>
-        <div className="social">
+        <div className="mail">
+          <a href="mailto:washersoftware@gmail.com">washersoftware@gmail.com</a>
+        </div>
+        <div className="socialDiv">
           <a href="https://www.facebook.com/Clever-Solutions-Team-111016498048349">
             <FontAwesomeIcon icon={faFacebook} />
           </a>

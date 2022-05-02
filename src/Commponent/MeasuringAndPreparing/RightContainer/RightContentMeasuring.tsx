@@ -1,14 +1,28 @@
-import { useEffect, useState } from "react";
-import api from "../../../api/api";
+import { useEffect, useReducer, useRef, useState } from "react";
 import { useReceptionInfo } from "../../../Context/ReceptionInfoContext";
 import { useUser } from "../../../Context/UserContext";
 import { useWorker } from "../../../Context/WorkerContext";
+import {
+  addCarpet,
+  editCarpetRequest,
+  editReception,
+  emptyInput,
+} from "../../../misc/Function/MeasuringAndPreparingCarpet/RightContentFunction";
+import {
+  DimensionsReducer,
+  initialDimensions,
+} from "../../../Reducers/MeasuringAndPreparingCarpet/DimensionsReducer";
 import "./RightContentMeasuring.css";
 
 export default function RightContentMeasuring() {
+  const [state, dispatch] = useReducer(DimensionsReducer, initialDimensions);
   const { reception, setReceptionEvent } = useReceptionInfo() as any;
   const { user } = useUser() as any;
   const { worker } = useWorker() as any;
+
+  const inputWidth = useRef([]) as any;
+  const inputHeight = useRef([]) as any;
+  const inputPrice = useRef([]) as any;
 
   const [surface, setSurface] = useState({}) as any;
   const [forPay, setForPay] = useState({}) as any;
@@ -19,15 +33,38 @@ export default function RightContentMeasuring() {
     setSurface({});
     setForPay({});
     setDisabled({});
+    if (inputWidth && inputHeight && inputPrice)
+      [...inputWidth.current, ...inputHeight.current, ...inputPrice.current]
+        .filter((input: any) => input)
+        .forEach((input: { value: string }) => (input.value = ""));
   }, [reception.carpetReceptionUserId]);
 
-  function sendCarpetData(key: string, index: number) {
-    if (
-      reception.dimensions[key].width === "" ||
-      reception.dimensions[key].height === "" ||
-      reception.dimensions[key].price === ""
-    )
-      return;
+  async function sendCarpetData(key: string, index: number) {
+    if (!emptyInput(state[key])) return;
+
+    setSurface({ ...surface, [key]: state[key].width * state[key].height });
+    setForPay({
+      ...forPay,
+      [key]: state[key].width * state[key].height * state[key].price,
+    });
+    setDisabled({ ...disabled, [key]: true });
+
+    const carpetResponse = await addCarpet(user, state, reception, key, worker);
+    setReceptionEvent({
+      ...reception,
+      forPay: reception.forPay + carpetResponse.data.forPayment,
+      carpetId: {
+        ...reception["carpetId"],
+        [key]: carpetResponse.data.carpetId,
+      },
+    });
+    await editReception(reception, user, index);
+  }
+
+  async function editCarpet(key: string) {
+    if (!emptyInput(state[key])) return;
+    const editResponse = await editCarpetRequest(reception, key, worker, user);
+
     setSurface({
       ...surface,
       [key]: reception.dimensions[key].width * reception.dimensions[key].height,
@@ -39,70 +76,9 @@ export default function RightContentMeasuring() {
         reception.dimensions[key].height *
         reception.dimensions[key].price,
     });
-    setDisabled({ ...disabled, [key]: true });
-    api(`api/carpet/addCarpet/${user.userId}`, "post", {
-      carpetReception: reception.carpetReceptionUserId,
-      width: reception.dimensions[key].width,
-      height: reception.dimensions[key].height,
-      price: reception.dimensions[key].price,
-      workerId: worker.workerId,
-      deliveryDate: reception.date,
-      clientsId: reception.clientId,
-    }).then((res) => {
-      setReceptionEvent({
-        ...reception,
-        forPay: reception.forPay + res.data.forPayment,
-        carpetId: { ...reception["carpetId"], [key]: res.data.carpetId },
-      });
-
-      api(
-        `api/carpetReception/editReception/${reception.workerReceivedId}/${user.userId}`,
-        "post",
-        {
-          carpetReceptionId: reception.carpetReceptionUserId,
-          prepare: reception.prepared + index,
-        },
-        "user"
-      );
-    });
-  }
-
-  function editCarpet(key: string) {
-    if (
-      reception.dimensions[key].width === "" ||
-      reception.dimensions[key].height === "" ||
-      reception.dimensions[key].price === ""
-    )
-      return;
-    api(
-      `api/carpet/editCarpet/${reception["carpetId"][key]}/${user.userId}`,
-      "post",
-      {
-        carpetReception: reception.receptionId,
-        width: reception.dimensions[key].width,
-        height: reception.dimensions[key].height,
-        price: reception.dimensions[key].price,
-        workerId: worker.workerId,
-        deliveryDate: reception.date,
-        clientsId: reception.clientId,
-      }
-    ).then((res) => {
-      setSurface({
-        ...surface,
-        [key]:
-          reception.dimensions[key].width * reception.dimensions[key].height,
-      });
-      setForPay({
-        ...forPay,
-        [key]:
-          reception.dimensions[key].width *
-          reception.dimensions[key].height *
-          reception.dimensions[key].price,
-      });
-      setReceptionEvent({
-        ...reception,
-        forPay: reception.forPay + res.data.forPayment - forPay[key],
-      });
+    setReceptionEvent({
+      ...reception,
+      forPay: reception.forPay + editResponse.data.forPayment - forPay[key],
     });
   }
 
@@ -116,27 +92,18 @@ export default function RightContentMeasuring() {
                 <div className="dimension">
                   <label htmlFor="width">Sirina:</label>
                   <input
+                    ref={(input) => (inputWidth.current[index] = input)}
                     type="number"
-                    min={0}
                     name={`Tepih/Staza ${index}`}
                     id="width"
-                    value={
-                      !reception.dimensions
-                        ? ""
-                        : reception.dimensions[`Tepih/Staza ${index}`].width
-                    }
                     onChange={(e) => {
                       Number(e.target.value) < 0
                         ? (e.target.value = "")
-                        : setReceptionEvent({
-                            ...reception,
-                            dimensions: {
-                              ...reception.dimensions,
-                              [e.target.name]: {
-                                ...reception.dimensions[e.target.name],
-                                width: e.target.value,
-                              },
-                            },
+                        : dispatch({
+                            type: "setDimensions",
+                            name: e.target.name,
+                            field: "width",
+                            value: e.target.value,
                           });
                     }}
                   />
@@ -144,27 +111,18 @@ export default function RightContentMeasuring() {
                 <div className="dimension">
                   <label htmlFor="height">Duzina:</label>
                   <input
+                    ref={(input) => (inputHeight.current[index] = input)}
                     type="number"
-                    min={0}
                     name={`Tepih/Staza ${index}`}
                     id="height"
-                    value={
-                      !reception.dimensions
-                        ? ""
-                        : reception.dimensions[`Tepih/Staza ${index}`].height
-                    }
                     onChange={(e) =>
                       Number(e.target.value) < 0
                         ? (e.target.value = "")
-                        : setReceptionEvent({
-                            ...reception,
-                            dimensions: {
-                              ...reception.dimensions,
-                              [e.target.name]: {
-                                ...reception.dimensions[e.target.name],
-                                height: e.target.value,
-                              },
-                            },
+                        : dispatch({
+                            type: "setDimensions",
+                            name: e.target.name,
+                            field: "height",
+                            value: e.target.value,
                           })
                     }
                   />
@@ -172,27 +130,18 @@ export default function RightContentMeasuring() {
                 <div className="dimension">
                   <label htmlFor="price">Cena:</label>
                   <input
+                    ref={(input) => (inputPrice.current[index] = input)}
                     type="number"
-                    min={0}
                     name={`Tepih/Staza ${index}`}
                     id="price"
-                    value={
-                      !reception.dimensions
-                        ? ""
-                        : reception.dimensions[`Tepih/Staza ${index}`].price
-                    }
                     onChange={(e) =>
                       Number(e.target.value) < 0
                         ? (e.target.value = "")
-                        : setReceptionEvent({
-                            ...reception,
-                            dimensions: {
-                              ...reception.dimensions,
-                              [e.target.name]: {
-                                ...reception.dimensions[e.target.name],
-                                price: e.target.value,
-                              },
-                            },
+                        : dispatch({
+                            type: "setDimensions",
+                            name: e.target.name,
+                            field: "price",
+                            value: e.target.value,
                           })
                     }
                   />

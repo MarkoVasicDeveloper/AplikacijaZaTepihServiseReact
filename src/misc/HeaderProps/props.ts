@@ -10,5 +10,4 @@ export const WorkProps = [
   { link: "/deliverylist", text: "Lista za isporuku", id: 3 },
   { link: "/schedulingcarpetretrivals", text: "Zakazivanje", id: 4 },
   { link: "/downloadlist", text: "Lista preuzimanja", id: 5 },
-  { link: "/businessanalysis", text: "Analiza", id: 6 },
 ];

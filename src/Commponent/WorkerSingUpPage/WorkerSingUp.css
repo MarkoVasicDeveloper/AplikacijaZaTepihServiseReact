@@ -1,0 +1,22 @@
+.singUp-worker {
+  height: 80vh;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 1440px) {
+  .singUp-worker {
+    width: 50%;
+  }
+}
+
+@media (max-width: 700px) {
+  .singUp-worker {
+    width: 70%;
+  }
+}
+
+@media (max-width: 700px) {
+  .singUp-worker {
+    width: 90%;
+  }
+}

@@ -57,7 +57,6 @@ export default function Scheduling() {
       savedEmail: scheduleResult.data.email,
       savedNote: scheduleResult.data.note,
     });
-    console.log(savedInfo);
   }
 
   return (

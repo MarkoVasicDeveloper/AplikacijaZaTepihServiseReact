@@ -1,6 +1,5 @@
 #footer {
   width: 100%;
-  height: auto;
   background-color: #793ea5;
   position: relative;
   padding-top: 7rem;
@@ -61,7 +60,7 @@
   font-weight: 600;
 }
 
-.footer-info > a {
+.footer-info > .mail > a {
   color: #ffffff;
   font-size: 4rem;
   text-decoration: none;
@@ -81,19 +80,20 @@
   margin-bottom: 1rem;
 }
 
-.social {
+.socialDiv {
   width: 12%;
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
 }
 
-.social > a {
+.socialDiv > a {
   color: #fff;
   font-size: 3rem;
+  margin: 1rem;
 }
 
-.social > a:hover {
+.socialDiv > a:hover {
   transform: scale(1.4);
   transition: 500ms ease;
 }
@@ -101,6 +101,7 @@
 .footer-info > button {
   width: 30%;
   height: 60px;
+  padding: 0.3rem;
   background-color: #2a1538;
   border-radius: 20px;
   border: transparent;
@@ -119,122 +120,39 @@
   justify-content: center;
 }
 
-@media (max-width: 876px) {
-  .hero-info {
-    height: 4rem;
-  }
-
-  .imageContainer > div > h1 {
-    margin-top: 10%;
-  }
-
-  #info {
-    box-sizing: border-box;
-    height: auto;
-    padding: 1rem 0.2rem;
-  }
-
-  .info-container {
-    width: 90%;
-    height: auto;
-    flex-wrap: wrap;
-  }
-
-  .info-container > div {
-    width: 40%;
-    height: 420px;
-    margin-bottom: 2rem;
-  }
-
-  .text-description > .button > button {
-    height: 2rem;
-  }
-
-  .taxative-information > .one-information {
-    width: 49%;
-    height: auto;
-    margin-bottom: 2rem;
-  }
-
-  .taxative-information {
-    width: 90vw;
-    height: auto;
-  }
-
-  #support {
-    width: 100%;
-    height: auto;
-    padding: 5rem 1rem 2rem 0rem;
-  }
-
-  .footer-info > a {
-    font-size: 2.54rem;
-    margin: 0;
-  }
-
-  .footer-info {
-    width: 90%;
-    height: auto;
+@media (max-width: 1100px) {
+  .footer-info > .mail > a {
+    font-size: 3rem;
   }
 }
 
-@media (max-width: 700px) {
-  .hero-info {
-    height: 5rem;
-  }
-
-  .imageContainer > div > h1 {
-    margin-top: 8%;
-  }
-  .footer-info > a {
-    font-size: 1.5rem;
+@media (max-width: 900px) {
+  .footer-info > .mail > a {
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 600px) {
-  .footer-info > a {
+  .footer-info > .mail > a {
     font-size: 1.5rem;
   }
 
-  .footer-info {
-    width: 100%;
-    height: auto;
-  }
-
-  .taxative-information > .one-information {
-    width: 100%;
-  }
-
-  .info-container > div {
-    width: 100%;
-    height: 420px;
-    margin-bottom: 2rem;
-  }
-  .imageContainer > div > h1 {
-    font-size: 4rem;
-  }
-
-  .navBar > nav > ul {
-    width: 60%;
-    padding-right: 0rem;
-  }
-  .navBar > nav > ul > li {
-    width: 100%;
-    padding: 0.2rem;
-    border: 1px solid transparent;
-    font-size: 0.8rem;
-  }
-  .support-info {
+  .call_to_action {
     width: 90%;
+    margin-bottom: 4rem;
+    font-size: 2rem;
   }
-  .support-info > div > p {
-    font-size: 1.5rem;
-    line-height: 1.745;
+  .footer-info > button {
+    width: 50%;
+    margin-top: 3rem;
   }
 }
-
-@media (max-width: 500px) {
-  .footer-info > a {
+@media (max-width: 450px) {
+  .footer-info > .mail > a {
     font-size: 1rem;
+  }
+  .call_to_action {
+    width: 95%;
+    font-size: 1.5rem;
   }
 }

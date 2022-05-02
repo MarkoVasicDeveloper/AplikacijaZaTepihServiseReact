@@ -55,4 +55,7 @@
   .worker {
     display: none;
   }
+  .logOutButton {
+    padding-right: 0.5rem;
+  }
 }

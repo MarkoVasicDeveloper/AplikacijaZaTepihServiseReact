@@ -1,69 +1,66 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import DatePicker from "react-date-picker";
 import "./LeftContentMeasuring.css";
 import { useUser } from "../../../Context/UserContext";
-import api from "../../../api/api";
 import { useReceptionInfo } from "../../../Context/ReceptionInfoContext";
+import {
+  initialStateMeasuring,
+  ClientReducer,
+} from "../../../Reducers/MeasuringAndPreparingCarpet/ClientReducer";
+import {
+  getReception,
+  getWorkerName,
+} from "../../../misc/Function/MeasuringAndPreparingCarpet/LeftContent.ts/LeftContentFunction";
+import {
+  DimensionsReducer,
+  initialDimensions,
+} from "../../../Reducers/MeasuringAndPreparingCarpet/DimensionsReducer";
 
 export default function LeftContentMeasuring() {
   const [date, onChangeDate] = useState(new Date());
 
   const [receptionUserId, setReceptionUserId] = useState("");
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [address, setAddress] = useState("");
-  const [phone, setPhone] = useState("");
-  const [numberOfCarpet, setNumberOfCarpet] = useState("");
-  const [numberOfTracks, setNumberOfTracks] = useState("");
-  const [note, setNote] = useState("");
-  const [dateAt, setDateAt] = useState("");
   const [receiverWorker, setReceivedWorker] = useState("");
 
   const { user } = useUser() as any;
   const { reception, setReceptionEvent } = useReceptionInfo() as any;
+  const [state, dispatch] = useReducer(ClientReducer, initialStateMeasuring);
+  const [dimensionState, dispatchDimension] = useReducer(
+    DimensionsReducer,
+    initialDimensions
+  );
 
-  function sendData() {
-    api(
-      `api/carpetReception/getReceptionById/${receptionUserId}/${user.userId}`,
-      "post",
-      {}
-    ).then((res: any) => {
-      if (res.data.statusCode === -5001) return setReceptionEvent({ show: 0 });
-      setName(res.data.clients.name);
-      setSurname(res.data.clients.surname);
-      setAddress(res.data.clients.address);
-      setPhone(res.data.clients.phone);
-      setNumberOfCarpet(res.data.numberOfCarpet);
-      setNumberOfTracks(res.data.numberOfTracks);
-      setNote(res.data.note);
-      setDateAt(res.data.dateAt.split("T")[0]);
-      const dimension = {} as any;
-      new Array(res.data.numberOfCarpet + res.data.numberOfTracks)
-        .fill(0)
-        .forEach((_, index: number) => {
-          dimension[`Tepih/Staza ${index}`] = {
-            width: "",
-            height: "",
-            price: "",
-          };
-        });
+  async function sendData() {
+    const currentReception = await getReception(receptionUserId, user.userId);
 
-      setReceptionEvent({
-        date: date.toISOString().split("T")[0],
-        clientId: res.data.clientsId,
-        carpetReceptionUserId: receptionUserId,
-        carpetReceptionId: res.data.carpetReception,
-        forPay: 0,
-        workerReceivedId: res.data.workerId,
-        prepared: res.data.prepare,
-        show:
-          res.data.numberOfCarpet + res.data.numberOfTracks - res.data.prepare,
-        dimensions: dimension,
-      });
-      api(`api/worker/${res.data.workerId}/${user.userId}`, "get", {}).then(
-        (res) => setReceivedWorker(res.data.name)
-      );
+    if (currentReception.data.statusCode === -5001)
+      return setReceptionEvent({ show: 0 });
+
+    dispatch({ type: "setClientInfo", value: currentReception.data });
+
+    dispatchDimension({
+      type: "setEmpty",
+      value:
+        currentReception.data.numberOfCarpet +
+        currentReception.data.numberOfTracks -
+        currentReception.data.prepare,
     });
+
+    setReceptionEvent({
+      date: date.toISOString().split("T")[0],
+      clientId: currentReception.data.clientsId,
+      carpetReceptionUserId: receptionUserId,
+      carpetReceptionId: currentReception.data.carpetReception,
+      forPay: 0,
+      workerReceivedId: currentReception.data.workerId,
+      prepared: currentReception.data.prepare,
+      show:
+        currentReception.data.numberOfCarpet +
+        currentReception.data.numberOfTracks -
+        currentReception.data.prepare,
+    });
+
+    setReceivedWorker(await getWorkerName(currentReception, user.userId));
   }
 
   return (
@@ -84,33 +81,33 @@ export default function LeftContentMeasuring() {
       <div className="userInfo">
         <div className="info">
           <label>Ime:</label>
-          <p>{name}</p>
+          <p>{state.name}</p>
         </div>
         <div className="info">
           <label>Prezime:</label>
-          <p>{surname}</p>
+          <p>{state.surname}</p>
         </div>
         <div className="info">
           <label>Adresa:</label>
-          <p>{address}</p>
+          <p>{state.address}</p>
         </div>
         <div className="info">
           <label>Telefon:</label>
-          <p>{phone}</p>
+          <p>{state.phone}</p>
         </div>
         <div className="info">
           <label>Broj tepiha:</label>
-          <p>{numberOfCarpet}</p>
+          <p>{state.numberOfCarpet}</p>
         </div>
         <div className="info">
           <label>Broj staza:</label>
-          <p>{numberOfTracks}</p>
+          <p>{state.numberOfTracks}</p>
         </div>
       </div>
       <div className="userInfo">
         <div className="info">
           <label>Vreme prijema:</label>
-          <p>{dateAt}</p>
+          <p>{state.dateAt}</p>
         </div>
         <div className="info">
           <label>Radnik:</label>
@@ -119,7 +116,7 @@ export default function LeftContentMeasuring() {
 
         <div className="info">
           <label>Napomena:</label>
-          <p>{note}</p>
+          <p>{state.note}</p>
         </div>
         <div className="date">
           <label htmlFor="deliveryDate">Dan isporuke je:</label>

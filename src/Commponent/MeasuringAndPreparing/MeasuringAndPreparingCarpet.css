@@ -9,6 +9,7 @@
 
   color: #fff;
   font-family: "Montserrat";
+  position: relative;
 }
 
 #measuringAndPreparingCarpet > h1 {
@@ -24,4 +25,14 @@
   padding: 1rem;
   display: flex;
   gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .centralContentMeasuring {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+  }
 }

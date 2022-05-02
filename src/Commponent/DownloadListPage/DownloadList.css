@@ -1,0 +1,14 @@
+#deliveryPage
+  > .deliveryContent
+  > .delivery
+  > .reception
+  > .infoReception
+  > .infoSchedule {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .infoReception > .info > span {
+    width: 60%;
+  }
+}

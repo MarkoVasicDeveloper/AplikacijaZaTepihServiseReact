@@ -1,9 +1,18 @@
-import { MouseEvent, useEffect, useState } from "react";
+import { MouseEvent, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../../api/api";
 import { useClient } from "../../../Context/ClientContext";
 import { useUser } from "../../../Context/UserContext";
 import { useWorker } from "../../../Context/WorkerContext";
+import {
+  AddClient,
+  AddReception,
+  PrepareClientObject,
+} from "../../../misc/Function/CarpetReception/SendData";
+import {
+  CarpetReceptionLeft,
+  initialState,
+} from "../../../Reducers/CarpetReceptionLeft";
 import "./LeftContainer.css";
 
 export default function LeftContainer() {
@@ -13,87 +22,50 @@ export default function LeftContainer() {
   const { worker } = useWorker() as any;
   const { setClientEvent } = useClient() as any;
 
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [address, setAddress] = useState("");
-  const [phone, setPhone] = useState("");
-
-  const [numberOfCarpet, setNumberOfCarpet] = useState("");
-  const [numberOfTracks, setNumberOfTracks] = useState("");
-  const [note, setNote] = useState("");
+  const [state, dispatch] = useReducer(CarpetReceptionLeft, initialState);
 
   useEffect(() => {
-    if (user.logIn === false) {
-      navigator("/login");
-      return;
+    if (!user.userLogIn) return navigator("/login");
+    async function setReceptionNumber() {
+      const lastNumberReception = await api(
+        `api/carpetReception/getBigistReceptionByUser/${user.userId}`,
+        "post",
+        {}
+      );
+      if (lastNumberReception.data.length === 0)
+        return localStorage.setItem("reception_user", "1");
+
+      localStorage.setItem(
+        "reception_user",
+        lastNumberReception.data[0].carpetReceptionUser + 1
+      );
     }
 
-    api(
-      `api/carpetReception/getBigistReceptionByUser/${user.userId}`,
-      "post",
-      {}
-    ).then((res) => {
-      if (res.data.length !== 0) {
-        localStorage.setItem(
-          "reception_user",
-          res.data[0].carpetReceptionUser + 1
-        );
-        return;
-      }
-      localStorage.setItem("reception_user", "1");
-    });
+    setReceptionNumber();
+  }, [navigator, user.userId, user.userLogIn]);
 
-    return () => {};
-  }, [navigator, user.logIn, user.userId]);
-
-  function sendData(e: MouseEvent<HTMLButtonElement>) {
+  async function sendData(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-    if (name === "" || surname === "" || address === "") return;
 
-    api(`api/clients/addClient/${user.userId}`, "post", {
-      name: name,
-      surname: surname,
-      address: address,
-      phone: phone,
-    }).then((res) => {
-      if (res.status === "error") return;
-      api(`api/carpetReception/addReception/${worker.workerId}`, "post", {
-        clientsId: res.data.clientsId,
-        numberOfCarpet: Number(numberOfCarpet),
-        numberOfTracks: Number(numberOfTracks),
-        note: note,
-        carpet_reception_user: localStorage.getItem("reception_user"),
-        userId: user.userId,
-      }).then((res) => {
-        const lastReception =
-          res.data.carpetReceptions[res.data.carpetReceptions.length - 1]
-            .carpetReceptionUser;
+    const addClient = await AddClient(
+      state.name,
+      state.surname,
+      state.address,
+      state.phone,
+      user.userId
+    );
 
-        setClientEvent({
-          name: res.data.name,
-          surname: res.data.surname,
-          address: res.data.address,
-          phone: res.data.phone,
-          clientId: res.data.clientsId,
-          carpetReceptionUserArray: res.data.carpetReceptions,
-          carpetReceptionUser: lastReception,
-          numberOfCarpet:
-            res.data.carpetReceptions[res.data.carpetReceptions.length - 1]
-              .numberOfCarpet,
-          numberOfTracks:
-            res.data.carpetReceptions[res.data.carpetReceptions.length - 1]
-              .numberOfTracks,
-        });
-        setName("");
-        setSurname("");
-        setAddress("");
-        setPhone("");
-        setNote("");
-        setNumberOfCarpet("");
-        setNumberOfTracks("");
-        localStorage.setItem("reception_user", lastReception + 1);
-      });
-    });
+    const addReception = await AddReception(
+      addClient,
+      user.userId,
+      state.numberOfCarpet,
+      state.numberOfTracks,
+      state.note,
+      worker.workerId
+    );
+
+    setClientEvent(PrepareClientObject(addReception));
+    dispatch({ type: "setEmpty" });
   }
 
   return (
@@ -108,8 +80,10 @@ export default function LeftContainer() {
           <input
             type="text"
             id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={state.name}
+            onChange={(e) =>
+              dispatch({ type: "field", field: "name", value: e.target.value })
+            }
           />
         </div>
         <div className="clientInput">
@@ -117,8 +91,14 @@ export default function LeftContainer() {
           <input
             type="text"
             id="surname"
-            value={surname}
-            onChange={(e) => setSurname(e.target.value)}
+            value={state.surname}
+            onChange={(e) =>
+              dispatch({
+                type: "field",
+                field: "surname",
+                value: e.target.value,
+              })
+            }
           />
         </div>
         <div className="clientInput">
@@ -126,8 +106,14 @@ export default function LeftContainer() {
           <input
             type="text"
             id="address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            value={state.address}
+            onChange={(e) =>
+              dispatch({
+                type: "field",
+                field: "address",
+                value: e.target.value,
+              })
+            }
           />
         </div>
         <div className="clientInput">
@@ -135,8 +121,10 @@ export default function LeftContainer() {
           <input
             type="number"
             id="phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            value={state.phone}
+            onChange={(e) =>
+              dispatch({ type: "field", field: "phone", value: e.target.value })
+            }
           />
         </div>
       </div>
@@ -148,8 +136,14 @@ export default function LeftContainer() {
           <input
             type="number"
             id="carpets"
-            value={numberOfCarpet}
-            onChange={(e) => setNumberOfCarpet(e.target.value)}
+            value={state.numberOfCarpet}
+            onChange={(e) =>
+              dispatch({
+                type: "field",
+                field: "numberOfCarpet",
+                value: e.target.value,
+              })
+            }
           />
         </div>
         <div className="clientInput">
@@ -157,8 +151,14 @@ export default function LeftContainer() {
           <input
             type="number"
             id="tracks"
-            value={numberOfTracks}
-            onChange={(e) => setNumberOfTracks(e.target.value)}
+            value={state.numberOfTracks}
+            onChange={(e) =>
+              dispatch({
+                type: "field",
+                field: "numberOfTracks",
+                value: e.target.value,
+              })
+            }
           />
         </div>
         <div className="clientInput">
@@ -168,8 +168,10 @@ export default function LeftContainer() {
             id="note"
             cols={30}
             rows={10}
-            value={note}
-            onChange={(e) => setNote(e.target.value)}
+            value={state.note}
+            onChange={(e) =>
+              dispatch({ type: "field", field: "note", value: e.target.value })
+            }
           ></textarea>
         </div>
       </div>

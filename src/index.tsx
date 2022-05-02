@@ -2,15 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import CarpetReceptionsPage from "./Commponent/carpetReceptionPage/CarpetReceptionsPage";
-import DeliveryPage from "./Commponent/DelivertPage/DeliveryPage";
+import DeliveryPage from "./Commponent/DeliveryPage/DeliveryPage";
+import DownloadList from "./Commponent/DownloadListPage/DownloadList";
 import HomePage from "./Commponent/HomePage/HomePage";
 import LetsStart from "./Commponent/LetsStart/LetsStart";
-import Login from "./Commponent/LogIn/Login";
+import Login from "./Commponent/LogInPage/Login";
 import MeasuringAndPreparingCarpet from "./Commponent/MeasuringAndPreparing/MeasuringAndPreparingCarpet";
 import Scheduling from "./Commponent/SchedulingPage/Scheduling";
-import SingUp from "./Commponent/SingUp/SingUp";
-import WorkerLogin from "./Commponent/WorkerLogin/WorkerLogin";
-import WorkerSingUp from "./Commponent/WorkerSingUp/WorkerSingUp";
+import SingUp from "./Commponent/SingUpPage/SingUp";
+import WorkerLogin from "./Commponent/WorkerLoginPage/WorkerLogin";
+import WorkerSingUp from "./Commponent/WorkerSingUpPage/WorkerSingUp";
 import User from "./Context/UserContext";
 import Worker from "./Context/WorkerContext";
 import reportWebVitals from "./reportWebVitals";
@@ -37,6 +38,7 @@ root.render(
             />
             <Route path="/deliverylist" element={<DeliveryPage />} />
             <Route path="/schedulingcarpetretrivals" element={<Scheduling />} />
+            <Route path="/downloadlist" element={<DownloadList />} />
           </Routes>
         </Worker>
       </User>

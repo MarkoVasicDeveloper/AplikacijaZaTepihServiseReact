@@ -4,28 +4,28 @@
   background-image: url("../../../../Img/michael-longmire-lhltMGdohc8-unsplash.jpg");
   background-size: cover;
   background-position: center;
-  background-color: #000000aa;
+  background-color: #000000cc;
   background-blend-mode: darken;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 3rem 0.5rem;
 }
 
 .info-container {
-  width: 90%;
-  height: 70vh;
+  width: 95%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  gap: 1rem;
 }
 
 .info-container > div {
-  width: 24%;
+  margin-top: 2rem;
+  width: 200px;
   height: 100%;
 }
 
 .svg-icon {
-  width: 100%;
-  height: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,22 +34,22 @@
 }
 
 .title {
-  width: 100%;
-  height: 20%;
+  margin: 1rem 0rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid #fff;
   font-family: "Nunito Sans", sans-serif;
   color: #fff;
-  text-shadow: 0px 1px gray;
+  text-shadow: 1px 1px 3px #222;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   letter-spacing: 0.07rem;
+  height: 5rem;
 }
 
 .text-description {
-  width: 100%;
-  height: 50%;
+  height: 300px;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -73,7 +73,7 @@
 
 .text-description > .button > button {
   width: 70%;
-  height: 80%;
+  height: 3rem;
   border-radius: 20px;
   background-color: #793ea5;
   border: transparent;
@@ -127,4 +127,48 @@
 }
 .not-show {
   display: none;
+}
+
+@media (max-width: 1050px) {
+  #info {
+    height: auto;
+  }
+  .info-container {
+    flex-wrap: wrap;
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 950px) {
+  .info-container > div {
+    width: 300px;
+  }
+}
+
+@media (max-width: 690px) {
+  .info-container > div {
+    width: 60%;
+  }
+  .text-description {
+    height: 200px;
+  }
+}
+
+@media (max-width: 500px) {
+  .info-container > div {
+    width: 80%;
+  }
+  .text-description {
+    height: 150px;
+  }
+}
+
+@media (max-width: 500px) {
+  .info-container > div {
+    width: 95%;
+    margin-bottom: 3.5rem;
+  }
+  .text-description {
+    height: 150px;
+  }
 }

@@ -1,7 +1,6 @@
 .imageContainer {
-  width: 100vw;
-  height: 100vh;
-  padding-top: 3rem;
+  width: 100%;
+  padding: 3rem 0.2rem 1rem;
   background-color: #00000055;
   background-image: url("../../../../Img/hero-bg.jpg");
   background-blend-mode: color-burn;
@@ -47,7 +46,7 @@
 }
 
 .shadow3 {
-  width: 24%;
+  width: 25%;
   height: 100%;
   position: absolute;
   top: 0;
@@ -78,11 +77,9 @@
 }
 
 .hero-info {
-  position: absolute;
-  bottom: 5%;
-  left: 5%;
-  right: 5%;
-  height: 3rem;
+  width: 95%;
+  margin: auto;
+  margin-top: 5rem;
   font-family: "Nunito Sans", sans-serif;
   background-color: #793ea5;
   color: #fff;
@@ -91,6 +88,7 @@
   align-items: center;
   font-style: italic;
   letter-spacing: 0.2rem;
+  padding: 0.2rem;
 }
 
 .animation {
@@ -105,5 +103,18 @@
   100% {
     margin-top: 0%;
     opacity: 1;
+  }
+}
+
+@media (max-width: 1060px) {
+  .imageContainer > div > h1 {
+    font-size: 4rem;
+    margin-top: 10%;
+  }
+}
+
+@media (max-width: 400px) {
+  .imageContainer > div > h1 {
+    font-size: 3rem;
   }
 }
