@@ -1,0 +1,54 @@
+#adminHeader {
+  width: 3rem;
+  height: 100vh;
+  background-color: #3b3a3a;
+  position: absolute;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  padding: 0.3rem 0rem;
+  font-family: "Montserrat";
+}
+
+#adminHeader > .expand {
+  width: 12rem;
+  height: 3rem;
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+#adminHeader > .expand > .iconTitle {
+  display: none;
+}
+
+#adminHeader > .expand > .icon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #793ea5;
+  border-radius: 5px;
+  align-items: center;
+  padding: 0.2rem;
+  transition: all 500ms;
+  position: relative;
+}
+
+#adminHeader > .expand > .icon > a > svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #24023d;
+}
+
+#adminHeader > .expand > .icon:hover {
+  width: 6rem;
+  background-color: #793ea5;
+  cursor: pointer;
+}
+
+#adminHeader > .expand > .icon:hover + .iconTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}

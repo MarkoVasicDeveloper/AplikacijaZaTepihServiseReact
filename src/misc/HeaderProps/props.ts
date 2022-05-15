@@ -1,3 +1,6 @@
+import { faViber } from "@fortawesome/free-brands-svg-icons";
+import { faChartLine, faMailBulk } from "@fortawesome/free-solid-svg-icons";
+
 export const HomeProps = [
   { link: "/kakopoceti", text: "Kako poceti", id: 1 },
   { link: "/singup", text: "Sing up", id: 2 },
@@ -10,4 +13,15 @@ export const WorkProps = [
   { link: "/deliverylist", text: "Lista za isporuku", id: 3 },
   { link: "/schedulingcarpetretrivals", text: "Zakazivanje", id: 4 },
   { link: "/downloadlist", text: "Lista preuzimanja", id: 5 },
+];
+
+export const AdminProps = [
+  {
+    icon: faChartLine,
+    title: "Analiza",
+    link: "/administratro/analysis",
+    id: 1,
+  },
+  { icon: faViber, title: "Viber", link: "", id: 2 },
+  { icon: faMailBulk, title: "Mail", link: "", id: 3 },
 ];

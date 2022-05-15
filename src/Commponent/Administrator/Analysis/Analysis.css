@@ -1,0 +1,21 @@
+#adminAnalysis {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../../Img/hero-bg.webp");
+  background-size: cover;
+  background-color: #000000cc;
+  background-blend-mode: darken;
+  overflow-y: scroll;
+  font-family: "Montserrat";
+}
+#adminAnalysis > .chartContainer {
+  width: 90%;
+  /* height: 50vh; */
+  margin: 0 auto;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+#adminAnalysis > .chartContainer > div {
+  flex-grow: 1;
+}

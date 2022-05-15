@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { HashRouter, Route, Routes } from "react-router-dom";
+import Analysis from "./Commponent/Administrator/Analysis/Analysis";
+import LogInAdministrator from "./Commponent/Administrator/LogIn/LogIn";
 import CarpetReceptionsPage from "./Commponent/carpetReceptionPage/CarpetReceptionsPage";
 import DeliveryPage from "./Commponent/DeliveryPage/DeliveryPage";
 import DownloadList from "./Commponent/DownloadListPage/DownloadList";
@@ -39,6 +41,11 @@ root.render(
             <Route path="/deliverylist" element={<DeliveryPage />} />
             <Route path="/schedulingcarpetretrivals" element={<Scheduling />} />
             <Route path="/downloadlist" element={<DownloadList />} />
+            <Route
+              path="/administrator/login"
+              element={<LogInAdministrator />}
+            />
+            <Route path="/administrator/analysis" element={<Analysis />} />
           </Routes>
         </Worker>
       </User>

@@ -1,14 +1,14 @@
 import { HomeProps } from "../../misc/HeaderProps/props";
 import HeaderHome from "../Header/HeaderHome";
 import "./LetsStart.css";
-import singUp from "../../Img/mini_SingUp.png";
-import logIn from "../../Img/mini_Login.png";
-import receptionCarpet from "../../Img/mini_CarpetReception.png";
-import measuringAndPreparing from "../../Img/mini_MeasuringAndPreparingCarpet.png";
-import deliveryList from "../../Img/mini_DeliveringList.png";
-import schedulingCarpet from "../../Img/mini_Scheduling.png";
-import downloadList from "../../Img/mini_DownloadList.png";
-import analysis from "../../Img/mini_Analysis.png";
+import singUp from "../../Img/mini_SingUp.webp";
+import logIn from "../../Img/mini_Login.webp";
+import receptionCarpet from "../../Img/mini_CarpetReception.webp";
+import measuringAndPreparing from "../../Img/mini_MeasuringAndPreparingCarpet.webp";
+import deliveryList from "../../Img/mini_DeliveringList.webp";
+import schedulingCarpet from "../../Img/mini_Scheduling.webp";
+import downloadList from "../../Img/mini_DownloadList.webp";
+import analysis from "../../Img/mini_Analysis.webp";
 
 export default function LetsStart() {
   return (

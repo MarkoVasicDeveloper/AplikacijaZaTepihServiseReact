@@ -164,7 +164,7 @@ export default function RightContentMeasuring() {
                     Povrsina: &nbsp;
                     <span>
                       {surface[`Tepih/Staza ${index}`]
-                        ? surface[`Tepih/Staza ${index}`] + " m2"
+                        ? surface[`Tepih/Staza ${index}`].toFixed(0) + " m2"
                         : " m2"}
                     </span>
                   </p>
@@ -172,7 +172,7 @@ export default function RightContentMeasuring() {
                     Za naplatu: &nbsp;
                     <span>
                       {forPay[`Tepih/Staza ${index}`]
-                        ? forPay[`Tepih/Staza ${index}`] + " din"
+                        ? forPay[`Tepih/Staza ${index}`].toFixed(0) + " din"
                         : " din"}
                     </span>
                   </p>

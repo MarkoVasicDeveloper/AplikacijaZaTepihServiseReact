@@ -1,0 +1,28 @@
+#administratorLogIn {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../../Img/background-log-in-mini.webp");
+  background-size: cover;
+  background-position: center;
+  background-color: #00000055;
+  background-blend-mode: darken;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat";
+}
+
+#administratorLogIn > .adminLogInContent > h2 {
+  color: #fff;
+  margin: 1rem;
+  text-transform: uppercase;
+}
+
+#administratorLogIn > .adminLogInContent {
+  width: 400px;
+  height: 60%;
+  padding: 1rem;
+  border: 1px solid #793ea5;
+  border-radius: 20px;
+  background-color: #000000ee;
+}
