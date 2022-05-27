@@ -1,0 +1,41 @@
+#EditPaid {
+  max-width: 400px;
+  padding: 1rem;
+  border: 1px solid #793ea5;
+  border-radius: 20px;
+  text-align: center;
+  color: #fec400;
+  font-family: "Montserrat";
+  margin: 0 auto;
+  margin-top: 10%;
+  background-color: #000;
+}
+
+#EditPaid > h2 {
+  margin-bottom: 1rem;
+}
+
+#EditPaid > button {
+  width: 50%;
+  height: 2rem;
+  margin-top: 1rem;
+  color: #fff;
+  background-color: #793ea5;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#EditPaid > form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#EditPaid > form > input {
+  padding: 0.3rem;
+  color: #fff;
+  background-color: #000;
+  border-radius: 20px;
+  border: 1px solid #793ea5;
+}

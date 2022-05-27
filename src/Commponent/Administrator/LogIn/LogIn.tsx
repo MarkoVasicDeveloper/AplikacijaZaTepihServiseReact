@@ -7,9 +7,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api, { saveRefreshToken, saveToken } from "../../../api/api";
+import { useAnalusis } from "../../../Context/AnalusisContext";
+import { useUser } from "../../../Context/UserContext";
+import { getAnalusisData } from "../../../misc/Function/Analusis/getAnalusisData";
 import "./LoginAdministrator.css";
 
 export default function LogInAdministrator() {
+  const { user } = useUser() as any;
+  const { setAnalusisEvent } = useAnalusis() as any;
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState(false);
@@ -31,6 +37,7 @@ export default function LogInAdministrator() {
     saveRefreshToken("administrator", admin.data.refreshToken);
 
     localStorage.setItem("administrator", admin.data.Id);
+    setAnalusisEvent(await getAnalusisData(user.userId));
     navigate("/administrator/analysis");
   }
 

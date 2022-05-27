@@ -10,7 +10,6 @@
 }
 #adminAnalysis > .chartContainer {
   width: 90%;
-  /* height: 50vh; */
   margin: 0 auto;
   display: flex;
   gap: 1rem;

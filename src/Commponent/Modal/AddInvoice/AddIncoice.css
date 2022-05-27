@@ -1,0 +1,44 @@
+#AddIncoice {
+  margin: 0 auto;
+  margin-top: 15%;
+  max-width: 400px;
+  border: 1px solid #793ea5;
+  border-radius: 20px;
+  padding: 1rem;
+  font-family: "Montserrat";
+  background-color: #000;
+}
+
+#AddIncoice > form {
+  width: 100%;
+  display: grid;
+  grid-auto-rows: 30px;
+  gap: 0.5rem;
+}
+
+#AddIncoice > form > input {
+  background-color: #000;
+  border: 1px solid #793ea5;
+  border-radius: 20px;
+  padding: 0.5rem;
+  color: #fff;
+}
+
+#AddIncoice > form > div > label {
+  margin-left: 0.5rem;
+  color: #fff;
+}
+
+#AddIncoice > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#AddIncoice > div > button {
+  width: 50%;
+  padding: 0.3rem;
+  background-color: #793ea5;
+  border-radius: 3px;
+  color: #fff;
+}

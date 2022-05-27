@@ -60,7 +60,7 @@ export function optionsSurfaceAndTraffic(
       style: {
         colors: ["#FFF"],
       },
-      categories: categories,
+      categories: !categories ? [] : categories,
     },
   } as any;
 }
@@ -91,7 +91,7 @@ export function verticalOptions(categorie: string[], text: string) {
       },
     },
     xaxis: {
-      categories: categorie,
+      categories: !categorie ? [] : categorie,
     },
   } as any;
 }
@@ -100,21 +100,24 @@ export function seriesData(series: string[], text: string) {
   return [
     {
       name: text,
-      data: series,
+      data: !series ? [] : series,
     },
   ] as any;
 }
 
 export function returnApexOptions(data: {}) {
-  if (data === undefined) return [[""], [""]];
-  const seriesData = [];
-  const optionsCategory = [];
-  for (const [key, value] of Object.entries(data)) {
-    seriesData.push(value);
-    optionsCategory.push(key);
-  }
+  try {
+    const seriesData = [];
+    const optionsCategory = [];
+    for (const [key, value] of Object.entries(data)) {
+      seriesData.push(value);
+      optionsCategory.push(key);
+    }
 
-  return [seriesData.reverse(), optionsCategory.reverse()];
+    return [seriesData.reverse(), optionsCategory.reverse()];
+  } catch (error) {
+    return [[], []];
+  }
 }
 
 export function Series(names: string[], data: any) {
@@ -133,6 +136,7 @@ export function Series(names: string[], data: any) {
 export function returnSimpleObject(data: {
   string: { surface: number; forPayment: number };
 }) {
+  if (data === undefined) return [[], []];
   const surface = {} as any;
   const traffic = {} as any;
 

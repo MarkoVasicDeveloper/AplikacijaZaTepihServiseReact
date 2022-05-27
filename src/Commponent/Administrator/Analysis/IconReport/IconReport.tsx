@@ -38,7 +38,7 @@ export default function IconReport({
               <FontAwesomeIcon icon={faUserPlus} />
             </div>
             <div>
-              <span>{newUser}</span>
+              <span>{newUser ? newUser : 0}</span>
             </div>
           </div>
           <div className="dailyTitle">Novi Korisnici</div>
@@ -49,7 +49,7 @@ export default function IconReport({
               <img src={CarpetSvg} alt="carpet icon" />
             </div>
             <div>
-              <span>{numberOfCarpet}</span>
+              <span>{numberOfCarpet ? numberOfCarpet : 0}</span>
             </div>
           </div>
           <div className="dailyTitle">Tepisi</div>
@@ -60,7 +60,7 @@ export default function IconReport({
               <img src={TrackSvg} alt="carpet icon" />
             </div>
             <div>
-              <span>{numberOfTracks}</span>
+              <span>{numberOfTracks ? numberOfTracks : 0}</span>
             </div>
           </div>
           <div className="dailyTitle">Staze</div>
@@ -71,7 +71,7 @@ export default function IconReport({
               <FontAwesomeIcon icon={faRuler} />
             </div>
             <div>
-              <span>{totalSurface}</span>
+              <span>{totalSurface ? totalSurface : 0}</span>
             </div>
           </div>
           <div className="dailyTitle">Povrsina</div>
@@ -82,7 +82,7 @@ export default function IconReport({
               <FontAwesomeIcon icon={faMoneyBillTrendUp} />
             </div>
             <div>
-              <span>{totalPrice}</span>
+              <span>{totalPrice ? totalPrice : 0}</span>
             </div>
           </div>
           <div className="dailyTitle">Promet</div>

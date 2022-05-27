@@ -1,0 +1,40 @@
+#AddSupplierModal {
+  max-width: clamp(300px, 400px, 700px);
+  border: 1px solid #793ea5;
+  border-radius: 20px;
+  background-color: #000;
+  margin: 0 auto;
+  margin-top: 10%;
+  font-family: "Montserrat";
+  padding: 1rem;
+}
+
+#AddSupplierModal > form {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 30px;
+  gap: 0.5rem;
+}
+#AddSupplierModal > form > input {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #793ea5;
+  background-color: transparent;
+  color: #fff;
+  padding: 0.3rem;
+}
+
+#AddSupplierModal > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0rem;
+}
+
+#AddSupplierModal > div > button {
+  width: 9rem;
+  padding: 0.3rem;
+  background-color: #793ea5;
+  color: #fff;
+}

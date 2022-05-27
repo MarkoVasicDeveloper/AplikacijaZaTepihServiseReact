@@ -1,8 +1,10 @@
 #adminHeader {
   width: 3rem;
-  height: 100vh;
   background-color: #3b3a3a;
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
   display: flex;
   gap: 0.5rem;
   flex-direction: column;
@@ -11,10 +13,15 @@
 }
 
 #adminHeader > .expand {
-  width: 12rem;
+  width: 3rem;
   height: 3rem;
   display: inline-flex;
   gap: 0.5rem;
+  transition: 500ms ease;
+}
+
+#adminHeader > .expand:hover {
+  width: 12rem;
 }
 
 #adminHeader > .expand > .iconTitle {
@@ -35,15 +42,16 @@
 }
 
 #adminHeader > .expand > .icon > a > svg {
-  width: 1.5rem;
-  height: 1.5rem;
-  color: #24023d;
+  width: 2rem;
+  height: 2rem;
+  color: #fec400;
 }
 
 #adminHeader > .expand > .icon:hover {
   width: 6rem;
   background-color: #793ea5;
   cursor: pointer;
+  transition: all 500ms;
 }
 
 #adminHeader > .expand > .icon:hover + .iconTitle {

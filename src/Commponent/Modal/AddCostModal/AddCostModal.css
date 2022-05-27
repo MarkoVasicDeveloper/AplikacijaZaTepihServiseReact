@@ -1,0 +1,39 @@
+#AddCostModal {
+  width: 400px;
+  height: 200px;
+  border: 1px solid #793ea5;
+  border-radius: 20px;
+  margin: 0 auto;
+  margin-top: 10%;
+  font-family: "Montserrat";
+  padding: 0.5em;
+  background-color: #000;
+}
+
+#AddCostModal > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#AddCostModal > form > input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #793ea5;
+  color: #fff;
+  background-color: transparent;
+}
+
+#AddCostModal > form > button {
+  width: 50%;
+  height: 20%;
+  padding: 0.3rem;
+  margin-top: 1rem;
+  background-color: transparent;
+  border: 1px solid #793ea5;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
